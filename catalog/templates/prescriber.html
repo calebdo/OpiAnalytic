@@ -1,0 +1,27 @@
+<%inherit file="app_base.htm" />
+
+<%block name="site_center">
+    <div>
+        <h1>Prescriber Detail Page</h1>
+        <table>
+            <tr class="heading-title">
+                <th>Prescriber First Name</th>
+                <th>Prescriber Last Name</th>
+                <th>Prescriber Type</th>
+            </tr>
+            %for prescriber in prescribers:
+                <tr>
+                    <th>${ prescriber.first_name }</th>
+                    <th>${ prescriber.last_name }</th>
+                    %if prescriber.is_opioid_prescriber == 0:
+                        <th>Non-opioid Prescriber</th>
+                    %else:
+                        <th>Opioid Prescriber</th>
+                    %endif
+                </tr>     
+            %endfor    
+        </table>
+        
+    </div>
+  
+</%block>

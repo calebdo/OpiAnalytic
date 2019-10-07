@@ -1,0 +1,42 @@
+<%inherit file="app_base.htm" />
+
+<%block name="site_center">
+    <div>
+        <h1>Drug Details</h1>
+        <table class="results">
+            <tr class="heading-title">
+                <th>Drug Name</th>
+                <th>Drug Type</th>
+                <th>Total Quantity Prescribed</th>
+            </tr>
+      
+            <tr>
+                <td>${ details.name }</td>
+                %if details.is_opioid == 0:
+                    <td>Non-opioid</td>
+                %else:
+                    <td>Opioid</td>
+                %endif
+                <td>###</td>
+            </tr>   
+        </table>       
+    </div>
+    <div class="col-md-6">
+        <h3>Related Drugs</h3>
+        <p>Prescribers who often prescribe ${ details.name } also prescribe these drugs:</p>
+        <ol>
+             %for rd in relatedDrugs:
+                <li><a href="/catalog/drug/${ rd.id }">${ rd.name }</a></li>
+            %endfor
+        </ol>
+    </div>
+      <div class="col-md-6">
+        <h3>Top Prescribers</h3>
+        <ol>
+             %for p in pres:
+                <li>${ p.prescriber.first_name }</li>
+            %endfor
+        </ol>
+    </div>
+  
+</%block>

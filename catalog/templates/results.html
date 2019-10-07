@@ -1,0 +1,26 @@
+<%inherit file="app_base.htm" />
+
+<%block name="site_center">
+    <div>
+        <h1>Drug Search Results</h1>
+        <h4>${ numresults } results found</h4><br>
+        <table class="results">
+            <tr class="heading-title">
+                <th>Drug Name</th>
+                <th>Drug Type</th>
+            </tr>
+            %for drug in drugs:
+                <tr>
+                    <td><a href="/catalog/drug/${ drug.id }">${ drug.name }</a></td>
+                    %if drug.is_opioid == 0:
+                        <td>Non-opioid</td>
+                    %else:
+                        <td>Opioid</td>
+                    %endif
+                </tr>     
+            %endfor    
+        </table>
+        
+    </div>
+  
+</%block>

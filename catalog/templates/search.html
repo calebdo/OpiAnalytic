@@ -1,0 +1,15 @@
+<%inherit file="app_base.htm" />
+
+<%block name="site_center">
+    <div>
+        <h1>Search Drugs and Prescribers</h1>
+        <form method="POST"> 
+            <table>
+                ${ form.as_table() }
+            </table>
+            <input type="submit" value="Search">
+        </form>
+        
+    </div>
+  
+</%block>

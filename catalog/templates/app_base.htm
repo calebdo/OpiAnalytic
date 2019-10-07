@@ -1,0 +1,33 @@
+<%inherit file="/homepage/templates/base.htm" />
+<%! from catalog import models as cmod %>
+
+
+<%block name ="site_left">
+<div id="category-list">
+    <h4>Search</h4>
+    <li><a style="padding-right: 5px;" class="dropdown-item" href="/catalog/search/">Drugs and Prescribers</a></li>
+    <h4>Analytics</h4>
+    <li><a style="padding-right: 5px;" class="dropdown-item" href="/catalog/analytics/">View Analytics</a></li>
+</div>
+</%block>
+
+<%block name="page_title">Opianalytics</%block>
+
+<%block name="navbar_items">
+
+      
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome, ${ user.first_name }
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/account/index/">Account</a></li>
+            <li><a class="dropdown-item" href="/account/logout/">Logout</a></li>
+          </ul>
+        </li>
+
+</%block>
+
+
+<%block name="login_navbar">
+    <li><a class="dropdown-item" href="/account/login/">Login</a></li>
+ </%block>
